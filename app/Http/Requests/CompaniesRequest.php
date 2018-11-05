@@ -13,7 +13,7 @@ class CompaniesRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -28,6 +28,17 @@ class CompaniesRequest extends FormRequest
             'email' => 'required',
             'website' => 'required',
             'logo' => 'required'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'Por favor, preencha o campo Nome da empresa.',
+            'name.min' => 'Por favor, informe um Nome da empresa de no mínimo :min caracteres.',
+            'email.required' => 'Por favor, preencha o campo de Email.',
+            'website.required' => 'Por favor, preencha o campo de website.',
+            'logo.required' => 'Por favor, preencha o campo de logo.',
         ];
     }
 }

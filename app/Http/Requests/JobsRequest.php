@@ -13,7 +13,7 @@ class JobsRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -30,6 +30,18 @@ class JobsRequest extends FormRequest
             'remote' => 'required',
             'type' => 'required',
             'company_id' => 'required'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'title.required' => 'Por favor, preencha o campo Nome da Vaga.',
+            'title.min' => 'Por favor, informe um Nome da vaga de no mínimo :min caracteres.',
+            'description.required' => 'Por favor, preencha o campo de description.',
+            'local.required' => 'Por favor, preencha o campo de local.',
+            'type.required' => 'Por favor, preencha o campo de tipo.',
+            'company_id.required' => 'Por favor, preencha o campo de id da empresa.',
         ];
     }
 }

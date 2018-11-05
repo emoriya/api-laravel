@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CompaniesRequest;
+use App\Http\Requests\JobsRequest;
 use App\Job;
 use Illuminate\Http\Request;
 
@@ -25,7 +25,7 @@ class JobsController extends Controller
         return response()->json($job);
     }
 
-    public function store(CompaniesRequest $request) {
+    public function store(JobsRequest $request) {
         $job = new Job();
         $job->fill($request->all());
         $job->save();
@@ -33,7 +33,7 @@ class JobsController extends Controller
         return response()->json($job, 201);
     }
 
-    public function update(CompaniesRequest $request, $id) {
+    public function update(JobsRequest $request, $id) {
         $job = Job::all()->find($id);
 
         if(!$job) {

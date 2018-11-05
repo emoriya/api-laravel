@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\JobsRequest;
 use App\Job;
-use Illuminate\Http\Request;
 
 class JobsController extends Controller
 {
